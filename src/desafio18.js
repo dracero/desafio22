@@ -70,7 +70,7 @@ app.use('/api/auth', require('./routes/api/auth'))
 //Socket
 initListeners(io)
 
-const PORT = process.env.PORT ||  8080
+const PORT = process.argv[2] ||  process.env.PORT || 8080 
 
 
 const server = http.listen(PORT, () => {

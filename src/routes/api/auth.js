@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const passport = require('passport')
+const { isAuth } = require('../../middleware/auth')
 
 router.post('/login',passport.authenticate('login',{ failureRedirect: '/auth/failLogin'}),(req, res)=>{
     res.redirect('/')
@@ -12,7 +13,7 @@ router.post('/signup',passport.authenticate('signup', { failureRedirect: '/auth/
 
 })
 
-router.get('/logout',(req, res)=>{
+router.get('/logout',isAuth,(req, res)=>{
     const username = req.user.username
     req.logout();
     res.render('logout',{ layout: 'index', username: username })

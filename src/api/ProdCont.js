@@ -1,4 +1,4 @@
-const productModel = require('../models/Producto')
+const productModel = require('../services/Producto')
 const { logger, loggerError, loggerWarn } = require('../logger/config')
 
 class ProductoController {

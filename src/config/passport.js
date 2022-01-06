@@ -1,16 +1,14 @@
 const LocalStrategy = require('passport-local').Strategy
-const User = require('../models/User')
+const User = require('../services/User')
 
 module.exports = ( passport ) => {
 
     passport.serializeUser(function (user, done) {
-        done(null, user._id);
+        done(null, user);
       });
-      
-      passport.deserializeUser(function (id, done) {
-        User.findById(id, function (err, user) {
-          done(err, user);
-        });
+    
+    passport.deserializeUser(function (user, done) {
+        done(null, user);
       });
       
 
@@ -19,7 +17,7 @@ module.exports = ( passport ) => {
     },
         async (username,password,done) => {
             try{
-                let user = await User.findOne({username: username})
+                let user = await User.getOneBy({username: username})
 
                 if (user) return done( null, false, console.log("message","User Already Exists"))
                 
@@ -39,7 +37,7 @@ module.exports = ( passport ) => {
 
             try{
 
-                let user = await User.findOne({username: username})
+                let user = await User.getOneBy({username: username})
 
                 if(!user) return done( null, false, console.log("message","User doesn't exist"))
 
