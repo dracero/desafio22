@@ -1,10 +1,11 @@
-const MensajeSchema = require ('../schemas/MessageSchema')
-const MongoCrud = require('./MongoCrud')
+const model = require('../persistences/PersistenceFactory')('Message')
+const ServiceCrud = require('./ServiceCrud')
 
-class Mensaje extends MongoCrud{
-    constructor(){
-        super(MensajeSchema)
-    }
+class Mensaje extends ServiceCrud{
+   constructor(model){
+       super(model)
+   }
 }
 
-module.exports = new Mensaje()
+
+module.exports = new Mensaje(model)

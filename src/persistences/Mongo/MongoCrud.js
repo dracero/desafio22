@@ -1,3 +1,5 @@
+
+
 class MongoCrud{
 
     constructor(model){
@@ -18,9 +20,7 @@ class MongoCrud{
     }
 
     async save(data){
-
        return await this.model.create(data)
-       
     }
 
     async update(id, data){
