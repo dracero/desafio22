@@ -30,7 +30,7 @@ require('./config/passport')(passport)
 //-- Session y coookies 
 app.use(session({
   store: MongoStore.create({ 
-    mongoUrl: `${process.env.MONGO_ATLAS_URL}`,
+    mongoUrl: `${process.env.MONGO_URL}`,
     ttl: 60 * 10 
   }),
   secret: 'secreto',

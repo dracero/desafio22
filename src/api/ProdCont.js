@@ -1,18 +1,14 @@
-const productModel = require('../services/Producto')
+const productService = require('../services/Producto')
 const { logger, loggerError, loggerWarn } = require('../logger/config')
 
 class ProductoController {
-  constructor(model) {
-    this.model = model
-  }
-
   async listar(req, res){
     try{
       const { id } = req.params
 
       //Obtener Todos
       if(!id){
-        const prods = await productModel.getAll()
+        const prods = await productService.getAll()
         if (prods.length === 0) {
           
            res.status(404).json({ error: 'No hay productos cargados' })
@@ -23,13 +19,13 @@ class ProductoController {
       } 
 
       //Obtener Uno
-      const producto = await productModel.get(id)
+      const producto = await productService.getById(id)
   
       if (producto === undefined || producto === null) 
         return res.status(404).json({ code: 404, message: 'No se encontro el producto' })
   
       return res.json(producto)
-     
+
     }catch(err){
       res.status(500).json({error: err})
       loggerError.error(err)
@@ -39,12 +35,13 @@ class ProductoController {
   async guardar (req, res){
     try{
       const { title, price, thumbnail } = req.body
-      const producto = await productModel.save({
+      const producto = await productService.save({
         title,
         price,
         thumbnail
       })
-      res.json(producto)
+  
+      res.status(201).json(producto)
     }catch(err){
       res.status(500).json({error: err})
       loggerError.error(err.message)
@@ -62,7 +59,7 @@ class ProductoController {
       if(price) data.price = price
       if(thumbnail) data.thumbnail = thumbnail
   
-      const producto = await productModel.update( (req.params.id), data)
+      const producto = await productService.update( (req.params.id), data)
   
       if(producto == null || producto == undefined){
         loggerWarn.warn('No se encontro el producto')
@@ -80,7 +77,7 @@ class ProductoController {
 
   async borrar (req, res){
     try{
-      const producto = await productModel.delete(req.params.id)
+      const producto = await productService.delete(req.params.id)
 
       if(producto == null || producto == undefined){
         loggerWarn.warn(`No se encuentra el producto con id ${req.params.id}`)
@@ -97,4 +94,4 @@ class ProductoController {
 }
 
 // exporto una instancia de la clase
-module.exports = new ProductoController(productModel)
+module.exports = new ProductoController()

@@ -1,2 +1,13 @@
 {"level":"error","timestamp":"2021-12-10T20:30:13.797Z"}
 {"kind":"ObjectId","level":"error","path":"_id","reason":{},"stringValue":"\"61927ff58801d145607c01\"","timestamp":"2021-12-10T20:32:23.652Z","value":"61927ff58801d145607c01","valueType":"string"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T18:01:56.968Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T18:08:36.298Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T18:24:15.988Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T18:34:27.342Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T18:47:31.704Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T19:04:47.409Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T19:06:54.891Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T19:16:05.621Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T19:23:25.092Z"}
+{"level":"error","message":"No write concern mode named 'majority/ecommerceTest' found in replica set configuration","timestamp":"2022-01-20T19:28:24.863Z"}
+{"level":"error","message":"json is not defined","timestamp":"2022-01-20T19:40:15.913Z"}

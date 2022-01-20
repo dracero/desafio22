@@ -2,7 +2,7 @@ const mongoose = require ('mongoose')
 
 const MONGOURL = process.env.ENV !== 'DEV' ? process.env.MONGO_ATLAS_URL : process.env.MONGO_URL
 
-const connection = mongoose.connect(`${MONGOURL}/ecommerceTest`, { 
+const connection = mongoose.connect(`${MONGOURL}`, { 
     useNewUrlParser: true, 
     useUnifiedTopology: true
 })
